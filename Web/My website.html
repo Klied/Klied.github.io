@@ -524,6 +524,151 @@
       margin: 0.4rem 0.5rem;
     }
 
+    /* SPECIAL HIGH-VISIBILITY CV BUTTONS & BADGES */
+    .btn-cv {
+      background: var(--gradient-accent);
+      color: #ffffff !important;
+      box-shadow: 0 4px 20px rgba(225, 0, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-cv:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 30px rgba(225, 0, 255, 0.7);
+      color: #ffffff !important;
+    }
+
+    .btn-cv .cv-badge-pill {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-left: 0.2rem;
+    }
+
+    .btn-cv-nav {
+      background: linear-gradient(135deg, rgba(127, 0, 255, 0.35) 0%, rgba(225, 0, 255, 0.4) 100%);
+      border: 1.5px solid rgba(225, 0, 255, 0.7);
+      color: #ffffff !important;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 0 16px rgba(225, 0, 255, 0.35);
+      transition: all var(--transition-normal);
+      animation: navPulse 3s infinite;
+    }
+
+    @keyframes navPulse {
+      0%, 100% {
+        box-shadow: 0 0 14px rgba(225, 0, 255, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(225, 0, 255, 0.75);
+      }
+    }
+
+    .btn-cv-nav:hover {
+      background: var(--gradient-accent);
+      color: #ffffff !important;
+      border-color: #ffffff;
+      box-shadow: 0 0 28px rgba(225, 0, 255, 0.85);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .nav-cv-badge {
+      background: #ffffff;
+      color: #7f00ff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.1rem 0.45rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.5px;
+    }
+
+    /* Floating CV Quick Action Pill */
+    .floating-cv-btn {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 998;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 1.3rem;
+      background: rgba(18, 14, 38, 0.92);
+      backdrop-filter: var(--backdrop-blur);
+      -webkit-backdrop-filter: var(--backdrop-blur);
+      border: 1.5px solid rgba(225, 0, 255, 0.65);
+      border-radius: var(--radius-full);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 22px rgba(225, 0, 255, 0.4);
+      transition: all var(--transition-bounce);
+      text-decoration: none;
+      animation: floatPulse 3.5s ease-in-out infinite;
+    }
+
+    .floating-cv-btn:hover {
+      background: var(--gradient-accent);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 35px rgba(225, 0, 255, 0.8);
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #ffffff !important;
+    }
+
+    .floating-cv-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(225, 0, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: #f5d0fe;
+    }
+
+    .floating-cv-btn:hover .floating-cv-icon {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    .floating-cv-text small {
+      font-size: 0.7rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.35rem;
+      font-weight: 800;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 16px rgba(225, 0, 255, 0.35);
+      }
+      50% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 32px rgba(225, 0, 255, 0.75);
+      }
+    }
+
+    .hero-card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
     /* Hero card resume action */
     .hero-card-resume-btn {
       width: 100%;
@@ -1712,125 +1857,6 @@
       gap: 0.6rem;
     }
 
-    /* CAROUSEL */
-    .carousel-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .slide-display {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      height: 440px;
-      background: #000;
-    }
-
-    .slide-item {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
-
-    .slide-item.active {
-      display: block;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .slide-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .slide-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 2rem;
-      background: linear-gradient(180deg, transparent 0%, rgba(7, 9, 19, 0.95) 100%);
-      color: #ffffff;
-    }
-
-    .slide-caption-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .slide-caption-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .slide-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(7, 9, 19, 0.7);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border-glass);
-      color: #ffffff;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition-fast);
-      z-index: 10;
-    }
-
-    .slide-nav-btn:hover {
-      background: var(--primary-cyan);
-      color: #070913;
-    }
-
-    .slide-prev {
-      left: 1rem;
-    }
-
-    .slide-next {
-      right: 1rem;
-    }
-
-    .thumbnails-row {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-
-    .thumb-item {
-      height: 75px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid transparent;
-      opacity: 0.6;
-      transition: all var(--transition-fast);
-    }
-
-    .thumb-item:hover,
-    .thumb-item.active {
-      opacity: 1;
-      border-color: var(--primary-cyan);
-      transform: scale(1.03);
-    }
-
-    .thumb-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     /* CONTACT & FOOTER */
     .contact-grid {
       display: grid;
@@ -2092,14 +2118,6 @@
         font-size: 2rem;
       }
 
-      .slide-display {
-        height: 280px;
-      }
-
-      .thumbnails-row {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .resume-cta-banner {
         flex-direction: column;
         align-items: flex-start;
@@ -2170,20 +2188,33 @@
         <li><a href="#certifications" class="nav-link">Certifications</a></li>
         <li><a href="#focus" class="nav-link">Tech Focus</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#hobbies" class="nav-link">Beyond Code</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li><a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="nav-link"><i
               class="fa-solid fa-file-arrow-down"></i> Resume/CV</a></li>
       </ul>
 
       <div class="nav-actions">
+        <!-- Direct High-Visibility CV Button -->
+        <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-cv-nav btn-sm"
+          id="navDirectCvBtn" title="Download Official Curriculum Vitae (PDF)">
+          <i class="fa-solid fa-file-arrow-down"></i> Download CV <span class="nav-cv-badge">PDF</span>
+        </a>
+
         <!-- Resume & CV Dropdown -->
         <div class="resume-dropdown" id="navResumeDropdown">
           <button type="button" class="btn btn-outline btn-sm resume-dropdown-btn" id="resumeNavBtn"
             aria-expanded="false" aria-haspopup="true">
-            <i class="fa-solid fa-file-arrow-down"></i> Resume / CV <i class="fa-solid fa-chevron-down caret-icon"></i>
+            <i class="fa-solid fa-folder-open"></i> Documents <i class="fa-solid fa-chevron-down caret-icon"></i>
           </button>
           <div class="resume-dropdown-menu" id="resumeNavMenu">
+            <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf"
+              class="resume-dropdown-item" style="background: rgba(225, 0, 255, 0.1);">
+              <i class="fa-solid fa-file-lines" style="color: var(--accent-pink);"></i>
+              <div class="resume-dropdown-text">
+                <strong style="color: #f5d0fe;">Download CV</strong>
+                <span>Curriculum Vitae (PDF)</span>
+              </div>
+            </a>
             <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
               class="resume-dropdown-item">
               <i class="fa-solid fa-file-pdf"></i>
@@ -2192,20 +2223,12 @@
                 <span>Official PDF (IT OJT Applicant)</span>
               </div>
             </a>
-            <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf"
-              class="resume-dropdown-item">
-              <i class="fa-solid fa-file-lines"></i>
-              <div class="resume-dropdown-text">
-                <strong>Download CV</strong>
-                <span>Curriculum Vitae (PDF)</span>
-              </div>
-            </a>
             <div class="resume-dropdown-divider"></div>
             <button type="button" class="resume-dropdown-item open-preview-btn"
               data-doc-title="Zachary Yuan B. Umali - Resume & CV">
               <i class="fa-solid fa-eye"></i>
               <div class="resume-dropdown-text">
-                <strong>Preview Document</strong>
+                <strong>Preview Documents</strong>
                 <span>Interactive In-Browser Viewer</span>
               </div>
             </button>
@@ -2246,13 +2269,13 @@
         </p>
 
         <div class="hero-buttons">
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-cv btn-glow"
+            id="heroDownloadCvBtn" title="Download Zachary's Official Curriculum Vitae">
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV <span class="cv-badge-pill">PDF</span>
+          </a>
           <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
             class="btn btn-primary btn-glow" id="heroDownloadResumeBtn">
             <i class="fa-solid fa-download"></i> Download Resume
-          </a>
-          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-secondary"
-            id="heroDownloadCvBtn">
-            <i class="fa-solid fa-file-pdf"></i> Download CV
           </a>
           <button type="button" class="btn btn-secondary open-preview-btn" title="Preview Resume & CV">
             <i class="fa-solid fa-eye"></i> Preview
@@ -2306,10 +2329,16 @@
             </div>
           </div>
 
-          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
-            class="btn btn-outline btn-sm hero-card-resume-btn">
-            <i class="fa-solid fa-file-arrow-down"></i> Download Resume / CV
-          </a>
+          <div class="hero-card-actions">
+            <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf"
+              class="btn btn-cv btn-sm" style="font-size: 0.82rem; padding: 0.5rem 0.6rem; justify-content: center;">
+              <i class="fa-solid fa-file-arrow-down"></i> CV (PDF)
+            </a>
+            <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
+              class="btn btn-outline btn-sm" style="font-size: 0.82rem; padding: 0.5rem 0.6rem; justify-content: center;">
+              <i class="fa-solid fa-file-pdf"></i> Resume
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2443,12 +2472,13 @@
           </div>
         </div>
         <div class="resume-cta-actions">
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-cv btn-glow"
+            title="Download Official Curriculum Vitae">
+            <i class="fa-solid fa-file-arrow-down"></i> Download CV <span class="cv-badge-pill">PDF</span>
+          </a>
           <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
             class="btn btn-primary btn-glow">
             <i class="fa-solid fa-download"></i> Download Resume
-          </a>
-          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-secondary">
-            <i class="fa-solid fa-file-lines"></i> Download CV
           </a>
           <button type="button" class="btn btn-outline open-preview-btn">
             <i class="fa-solid fa-eye"></i> Preview Online
@@ -3005,119 +3035,6 @@
     </div>
   </section>
 
-  <!-- BEYOND CODE (HOBBIES & GALLERY) -->
-  <section id="hobbies" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-gamepad"></i> Beyond Code</span>
-        <h2 class="section-title">Personal Interests & <span class="text-gradient-purple">Passions</span></h2>
-        <p class="section-subtitle">Gaming memories, anime sci-fi, and manhwa series that fuel my creativity.</p>
-      </div>
-
-      <!-- Carousel Showcase -->
-      <div class="carousel-container">
-        <div class="slide-display">
-          <!-- Slide 1 -->
-          <div class="slide-item active">
-            <img src="https://i.pinimg.com/originals/9a/ff/0f/9aff0fe07a1db674923cf51e80e662ed.gif"
-              alt="Kazuha Genshin Impact" class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Kaedehara Kazuha - Genshin Impact</h4>
-              <p class="slide-caption-desc">Favorite character in Genshin Impact, known for anemo fluidity and
-                unforgettable backstory.</p>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="slide-item">
-            <img src="https://i.makeagif.com/media/2-23-2022/BVoCia.gif" alt="Raiden Shogun Genshin Impact"
-              class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Raiden Shogun - God of Thunder</h4>
-              <p class="slide-caption-desc">Stunning design and immense presence. Genshin Impact remains easily in my
-                top 3 favorite games.</p>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="slide-item">
-            <img src="https://i.pinimg.com/originals/7b/e0/72/7be0723f27b098c9311164ef4246a5d7.gif"
-              alt="Solo Leveling Manhwa" class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Solo Leveling Manhwa (Sung Jin-Woo)</h4>
-              <p class="slide-caption-desc">A masterpiece manhwa rated 10/10 in story and artwork. One of the first
-                manhwas I followed from chapter 1.</p>
-            </div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="slide-item">
-            <img src="https://i.makeagif.com/media/1-26-2022/BKhEPs.gif" alt="Jett Valorant" class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Jett - Valorant Tactical Shooter</h4>
-              <p class="slide-caption-desc">Fast-paced competitive gaming that sharpens quick decision making and
-                reflexes.</p>
-            </div>
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="slide-item">
-            <img
-              src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/10/mobilesuitgundamseedfreedom_mechavisual-1-e1696476356788.jpg"
-              alt="Gundam Seed Freedom" class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Mobile Suit Gundam Seed Freedom</h4>
-              <p class="slide-caption-desc">Sci-fi action anime has been a childhood favorite. Gundam Seed and Seed
-                Destiny hold special nostalgia.</p>
-            </div>
-          </div>
-
-          <!-- Slide 6 -->
-          <div class="slide-item">
-            <img src="https://i.makeagif.com/media/4-29-2023/3sBIQW.gif" alt="Build Strike Gundam" class="slide-img">
-            <div class="slide-caption">
-              <h4 class="slide-caption-title">Build Strike Gundam</h4>
-              <p class="slide-caption-desc">Capturing the spirit of mecha engineering, customization, and high-energy
-                battle scenes.</p>
-            </div>
-          </div>
-
-          <!-- Controls -->
-          <button class="slide-nav-btn slide-prev" aria-label="Previous Slide"><i
-              class="fa-solid fa-chevron-left"></i></button>
-          <button class="slide-nav-btn slide-next" aria-label="Next Slide"><i
-              class="fa-solid fa-chevron-right"></i></button>
-        </div>
-
-        <!-- Thumbnails Row -->
-        <div class="thumbnails-row">
-          <div class="thumb-item active">
-            <img src="https://i.pinimg.com/originals/9a/ff/0f/9aff0fe07a1db674923cf51e80e662ed.gif" alt="Thumb 1"
-              class="thumb-img">
-          </div>
-          <div class="thumb-item">
-            <img src="https://i.makeagif.com/media/2-23-2022/BVoCia.gif" alt="Thumb 2" class="thumb-img">
-          </div>
-          <div class="thumb-item">
-            <img src="https://i.pinimg.com/originals/7b/e0/72/7be0723f27b098c9311164ef4246a5d7.gif" alt="Thumb 3"
-              class="thumb-img">
-          </div>
-          <div class="thumb-item">
-            <img src="https://i.makeagif.com/media/1-26-2022/BKhEPs.gif" alt="Thumb 4" class="thumb-img">
-          </div>
-          <div class="thumb-item">
-            <img
-              src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/10/mobilesuitgundamseedfreedom_mechavisual-1-e1696476356788.jpg"
-              alt="Thumb 5" class="thumb-img">
-          </div>
-          <div class="thumb-item">
-            <img src="https://i.makeagif.com/media/4-29-2023/3sBIQW.gif" alt="Thumb 6" class="thumb-img">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT SECTION -->
   <section id="contact" class="section">
     <div class="container">
@@ -3265,6 +3182,13 @@
     </div>
   </footer>
 
+  <!-- Floating Easy-to-Spot Download CV Widget -->
+  <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="floating-cv-btn" id="floatingCvBtn"
+    title="Download Zachary's Official CV (PDF)">
+    <span class="floating-cv-icon"><i class="fa-solid fa-file-pdf"></i></span>
+    <span class="floating-cv-text">Download CV <small>PDF</small></span>
+  </a>
+
   <!-- Floating Back to Top -->
   <div id="backToTop" class="back-to-top" aria-label="Back to Top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -3283,13 +3207,13 @@
           </div>
         </div>
         <div class="resume-modal-actions">
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf"
+            class="btn btn-cv btn-sm" id="modalDownloadCV">
+            <i class="fa-solid fa-file-arrow-down"></i> CV (PDF)
+          </a>
           <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf"
             class="btn btn-primary btn-sm" id="modalDownloadResume">
             <i class="fa-solid fa-download"></i> Resume
-          </a>
-          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf"
-            class="btn btn-secondary btn-sm" id="modalDownloadCV">
-            <i class="fa-solid fa-download"></i> CV
           </a>
           <a href="assets/Zachary_Yuan_Umali_Resume.pdf" target="_blank" rel="noopener" class="modal-tool-btn"
             title="Open in New Tab" aria-label="Open in New Tab">
@@ -3314,7 +3238,6 @@
       initTypewriter();
       initFocusTabs();
       initProjectFilters();
-      initCarousel();
       initContactForm();
       initBackToTop();
       initScrollSpy();
@@ -3439,68 +3362,7 @@
       });
     }
 
-    /* 5. CAROUSEL SHOWCASE */
-    let currentSlideIndex = 0;
-    let autoSlideTimer = null;
-
-    function initCarousel() {
-      const slides = document.querySelectorAll('.slide-item');
-      const thumbs = document.querySelectorAll('.thumb-item');
-      const prevBtn = document.querySelector('.slide-prev');
-      const nextBtn = document.querySelector('.slide-next');
-
-      if (slides.length === 0) return;
-
-      function showSlide(index) {
-        if (index >= slides.length) currentSlideIndex = 0;
-        else if (index < 0) currentSlideIndex = slides.length - 1;
-        else currentSlideIndex = index;
-
-        slides.forEach(slide => slide.classList.remove('active'));
-        thumbs.forEach(thumb => thumb.classList.remove('active'));
-
-        slides[currentSlideIndex].classList.add('active');
-        if (thumbs[currentSlideIndex]) {
-          thumbs[currentSlideIndex].classList.add('active');
-        }
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          showSlide(currentSlideIndex - 1);
-          resetAutoSlide();
-        });
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          showSlide(currentSlideIndex + 1);
-          resetAutoSlide();
-        });
-      }
-
-      thumbs.forEach((thumb, i) => {
-        thumb.addEventListener('click', () => {
-          showSlide(i);
-          resetAutoSlide();
-        });
-      });
-
-      function startAutoSlide() {
-        autoSlideTimer = setInterval(() => {
-          showSlide(currentSlideIndex + 1);
-        }, 5000);
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideTimer);
-        startAutoSlide();
-      }
-
-      startAutoSlide();
-    }
-
-    /* 6. CONTACT FORM & TOAST */
+    /* 5. CONTACT FORM & TOAST */
     function initContactForm() {
       const contactForm = document.getElementById('contactForm');
       const toast = document.getElementById('toastNotification');
