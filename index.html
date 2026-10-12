@@ -370,6 +370,391 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-sm);
 }
 
+/* RESUME & CV ENHANCEMENTS */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: rotate(30deg);
+  animation: shineSweep 4s infinite;
+}
+
+@keyframes shineSweep {
+  0% { transform: translate(-100%, -100%) rotate(30deg); }
+  25%, 100% { transform: translate(100%, 100%) rotate(30deg); }
+}
+
+/* Navbar Resume Dropdown */
+.resume-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.resume-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.5);
+  color: var(--primary-cyan);
+  font-family: inherit;
+}
+
+.resume-dropdown-btn:hover {
+  background: rgba(0, 242, 254, 0.16);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.resume-dropdown-btn .caret-icon {
+  font-size: 0.72rem;
+  transition: transform var(--transition-fast);
+}
+
+.resume-dropdown.open .resume-dropdown-btn .caret-icon {
+  transform: rotate(180deg);
+}
+
+.resume-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 275px;
+  background: rgba(11, 16, 32, 0.96);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.6rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 25px rgba(0, 242, 254, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-normal);
+  z-index: 1050;
+}
+
+.resume-dropdown:hover .resume-dropdown-menu,
+.resume-dropdown.open .resume-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.resume-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.resume-dropdown-item:hover {
+  background: rgba(0, 242, 254, 0.12);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.resume-dropdown-item i {
+  font-size: 1.15rem;
+  color: var(--primary-cyan);
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.resume-dropdown-text strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.resume-dropdown-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.resume-dropdown-divider {
+  height: 1px;
+  background: var(--border-glass);
+  margin: 0.4rem 0.5rem;
+}
+
+/* Hero card resume action */
+.hero-card-resume-btn {
+  width: 100%;
+  margin-top: 1.25rem;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Resume CTA Banner in About Section */
+.resume-cta-banner {
+  margin-top: 3.5rem;
+  background: linear-gradient(135deg, rgba(18, 24, 43, 0.9) 0%, rgba(10, 15, 30, 0.95) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45), 0 0 30px rgba(0, 242, 254, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--gradient-primary);
+}
+
+.resume-cta-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.resume-cta-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.85rem;
+  color: var(--primary-cyan);
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+}
+
+.resume-cta-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.resume-cta-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  line-height: 1.5;
+}
+
+.resume-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Contact Details Resume Links */
+.contact-resume-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.contact-resume-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--primary-cyan);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.contact-resume-pill:hover {
+  background: var(--gradient-primary);
+  color: #070913;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* RESUME PREVIEW MODAL */
+.resume-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.resume-modal.active {
+  display: flex;
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.resume-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 7, 15, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.resume-modal-dialog {
+  position: relative;
+  z-index: 2001;
+  width: 100%;
+  max-width: 960px;
+  height: 90vh;
+  background: #0d1222;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalZoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modalZoomIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.6rem;
+  background: rgba(18, 24, 43, 0.95);
+  border-bottom: 1px solid var(--border-glass);
+  gap: 1rem;
+}
+
+.resume-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resume-modal-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-cyan);
+  font-size: 1.25rem;
+}
+
+.resume-modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.15rem;
+}
+
+.resume-modal-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.resume-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.modal-tool-btn,
+.modal-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.95rem;
+}
+
+.modal-tool-btn:hover {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--primary-cyan);
+  border-color: rgba(0, 242, 254, 0.4);
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 78, 80, 0.2);
+  color: #ff4e50;
+  border-color: rgba(255, 78, 80, 0.4);
+}
+
+.resume-modal-body {
+  flex: 1;
+  background: #1e2436;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 /* HERO SECTION */
 .hero {
   min-height: 100vh;
@@ -1648,6 +2033,51 @@ textarea.form-control {
   .thumbnails-row {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .resume-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.8rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .resume-cta-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .resume-cta-actions {
+    width: 100%;
+  }
+
+  .resume-cta-actions .btn {
+    flex: 1;
+    min-width: 140px;
+    justify-content: center;
+  }
+
+  .resume-dropdown-menu {
+    right: auto;
+    left: 0;
+  }
+
+  .resume-modal-dialog {
+    height: 94vh;
+    padding: 0;
+  }
+
+  .resume-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .resume-modal-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
   </style>
 </head>
@@ -1675,9 +2105,41 @@ textarea.form-control {
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#hobbies" class="nav-link">Beyond Code</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="nav-link"><i class="fa-solid fa-file-arrow-down"></i> Resume/CV</a></li>
       </ul>
 
       <div class="nav-actions">
+        <!-- Resume & CV Dropdown -->
+        <div class="resume-dropdown" id="navResumeDropdown">
+          <button type="button" class="btn btn-outline btn-sm resume-dropdown-btn" id="resumeNavBtn" aria-expanded="false" aria-haspopup="true">
+            <i class="fa-solid fa-file-arrow-down"></i> Resume / CV <i class="fa-solid fa-chevron-down caret-icon"></i>
+          </button>
+          <div class="resume-dropdown-menu" id="resumeNavMenu">
+            <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="resume-dropdown-item">
+              <i class="fa-solid fa-file-pdf"></i>
+              <div class="resume-dropdown-text">
+                <strong>Download Resume</strong>
+                <span>Official PDF (IT OJT Applicant)</span>
+              </div>
+            </a>
+            <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="resume-dropdown-item">
+              <i class="fa-solid fa-file-lines"></i>
+              <div class="resume-dropdown-text">
+                <strong>Download CV</strong>
+                <span>Curriculum Vitae (PDF)</span>
+              </div>
+            </a>
+            <div class="resume-dropdown-divider"></div>
+            <button type="button" class="resume-dropdown-item open-preview-btn" data-doc-title="Zachary Yuan B. Umali - Resume & CV">
+              <i class="fa-solid fa-eye"></i>
+              <div class="resume-dropdown-text">
+                <strong>Preview Document</strong>
+                <span>Interactive In-Browser Viewer</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
         <a href="https://github.com/Klied" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
           <i class="fa-brands fa-github"></i> GitHub
         </a>
@@ -1710,11 +2172,20 @@ textarea.form-control {
         </p>
 
         <div class="hero-buttons">
-          <a href="#clir-spotlight" class="btn btn-primary">
-            <i class="fa-solid fa-star"></i> Featured CLIR Project
+          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="btn btn-primary btn-glow" id="heroDownloadResumeBtn">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-secondary" id="heroDownloadCvBtn">
+            <i class="fa-solid fa-file-pdf"></i> Download CV
+          </a>
+          <button type="button" class="btn btn-secondary open-preview-btn" title="Preview Resume & CV">
+            <i class="fa-solid fa-eye"></i> Preview
+          </button>
+          <a href="#clir-spotlight" class="btn btn-secondary">
+            <i class="fa-solid fa-star"></i> Featured Project
           </a>
           <a href="#contact" class="btn btn-secondary">
-            <i class="fa-solid fa-paper-plane"></i> Get in Touch
+            <i class="fa-solid fa-paper-plane"></i> Contact
           </a>
         </div>
 
@@ -1755,6 +2226,10 @@ textarea.form-control {
               <div class="stat-label">GitHub Repos</div>
             </div>
           </div>
+
+          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="btn btn-outline btn-sm hero-card-resume-btn">
+            <i class="fa-solid fa-file-arrow-down"></i> Download Resume / CV
+          </a>
         </div>
       </div>
     </div>
@@ -1858,6 +2333,32 @@ textarea.form-control {
               Fluent in English (Written & Verbal) for technical documentation, cross-team collaboration, and client communication.
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Downloadable Resume & CV Showcase Banner -->
+      <div class="resume-cta-banner">
+        <div class="resume-cta-info">
+          <div class="resume-cta-icon">
+            <i class="fa-solid fa-file-pdf"></i>
+          </div>
+          <div>
+            <h3 class="resume-cta-title">Official Resume & Curriculum Vitae</h3>
+            <p class="resume-cta-desc">
+              Looking for a dedicated IT OJT Intern? Download my comprehensive resume or CV detailing my academic coursework at Mapúa MMCL, certifications, full-stack web projects, and networking background.
+            </p>
+          </div>
+        </div>
+        <div class="resume-cta-actions">
+          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-secondary">
+            <i class="fa-solid fa-file-lines"></i> Download CV
+          </a>
+          <button type="button" class="btn btn-outline open-preview-btn">
+            <i class="fa-solid fa-eye"></i> Preview Online
+          </button>
         </div>
       </div>
     </div>
@@ -2513,6 +3014,24 @@ textarea.form-control {
                 <div class="contact-text-value">Available upon request</div>
               </div>
             </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-file-pdf"></i></div>
+              <div>
+                <div class="contact-text-label">Resume & CV Documents</div>
+                <div class="contact-resume-links">
+                  <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="contact-resume-pill">
+                    <i class="fa-solid fa-download"></i> Resume (PDF)
+                  </a>
+                  <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="contact-resume-pill">
+                    <i class="fa-solid fa-download"></i> CV (PDF)
+                  </a>
+                  <button type="button" class="contact-resume-pill open-preview-btn" style="cursor: pointer; background: rgba(127, 0, 255, 0.15); border-color: rgba(127, 0, 255, 0.4); color: #d8b4fe;">
+                    <i class="fa-solid fa-eye"></i> View Online
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="social-links">
@@ -2577,6 +3096,39 @@ textarea.form-control {
     <i class="fa-solid fa-arrow-up"></i>
   </div>
 
+  <!-- RESUME & CV PREVIEW MODAL -->
+  <div id="resumePreviewModal" class="resume-modal" aria-hidden="true" role="dialog" aria-labelledby="resumeModalTitle">
+    <div class="resume-modal-backdrop" id="resumeModalBackdrop"></div>
+    <div class="resume-modal-dialog">
+      <div class="resume-modal-header">
+        <div class="resume-modal-title-group">
+          <div class="resume-modal-icon"><i class="fa-solid fa-file-pdf"></i></div>
+          <div>
+            <h3 id="resumeModalTitle" class="resume-modal-title">Zachary Yuan B. Umali - Resume & CV</h3>
+            <span class="resume-modal-subtitle">IT OJT Applicant • Mapúa Malayan Colleges Laguna</span>
+          </div>
+        </div>
+        <div class="resume-modal-actions">
+          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" download="Zachary_Yuan_Umali_Resume.pdf" class="btn btn-primary btn-sm" id="modalDownloadResume">
+            <i class="fa-solid fa-download"></i> Resume
+          </a>
+          <a href="assets/Zachary_Yuan_Umali_CV.pdf" download="Zachary_Yuan_Umali_CV.pdf" class="btn btn-secondary btn-sm" id="modalDownloadCV">
+            <i class="fa-solid fa-download"></i> CV
+          </a>
+          <a href="assets/Zachary_Yuan_Umali_Resume.pdf" target="_blank" rel="noopener" class="modal-tool-btn" title="Open in New Tab" aria-label="Open in New Tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button type="button" class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close Preview">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="resume-modal-body">
+        <iframe id="resumeModalIframe" src="assets/Zachary_Yuan_Umali_Resume.pdf" title="Resume Document Preview"></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- Embedded Interactive JavaScript Logic -->
   <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -2588,6 +3140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initScrollSpy();
+  initResumeFeatures();
 });
 
 /* 1. NAVBAR & MOBILE MENU */
@@ -2834,6 +3387,70 @@ function initScrollSpy() {
         link.classList.add('active');
       }
     });
+  });
+}
+
+/* 9. RESUME & CV INTERACTION & PREVIEW MODAL */
+function initResumeFeatures() {
+  const resumeNavDropdown = document.getElementById('navResumeDropdown');
+  const resumeNavBtn = document.getElementById('resumeNavBtn');
+  const modal = document.getElementById('resumePreviewModal');
+  const modalBackdrop = document.getElementById('resumeModalBackdrop');
+  const modalCloseBtn = document.getElementById('closeResumeModalBtn');
+  const previewBtns = document.querySelectorAll('.open-preview-btn');
+
+  // Nav Dropdown toggle on click
+  if (resumeNavBtn && resumeNavDropdown) {
+    resumeNavBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = resumeNavDropdown.classList.toggle('open');
+      resumeNavBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!resumeNavDropdown.contains(e.target)) {
+        resumeNavDropdown.classList.remove('open');
+        resumeNavBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Open Preview Modal
+  function openModal() {
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (resumeNavDropdown) {
+      resumeNavDropdown.classList.remove('open');
+      if (resumeNavBtn) resumeNavBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Close Preview Modal
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  previewBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeModal();
+    }
   });
 }
   </script>
